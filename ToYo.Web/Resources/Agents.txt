@@ -1,46 +1,57 @@
 ﻿[
 	{
 		id : 1,
-		name : "Strætó - 21"
+		name : "Strætó - 21",
+		type : 0
 	},
 	{
 		id : 2,
-		name : "Sterna"
+		name : "Sterna",
+		type : 0
 	},
 	{
 		id : 3,
-		name : "Reykjavík Excursions"
+		name : "Reykjavík Excursions",
+		type : 0
 	},
 	{
 		id : 4,
-		name : "Ernir"
+		name : "Ernir",
+		type : 1
 	},
 	{
 		id : 5,
-		name : "Herjólfur"
+		name : "Herjólfur",
+		type : 2
 	},
 	{
 		id : 6,
-		name : "Baldur"
+		name : "Baldur",
+		type : 2
 	},
 	{
 		id : 7,
-		name : "Flugfélag Íslands"
+		name : "Flugfélag Íslands",
+		type : 1
 	},
 	{
 		id : 8,
-		name : "Strætó - 57"
+		name : "Strætó - 57",
+		type : 0
 	},
 	{
 		id : 9,
-		name : "Strætó - 58"
+		name : "Strætó - 58",
+		type : 0
 	},
 	{
 		id : 10,
-		name : "Strætó - 51"
+		name : "Strætó - 51",
+		type : 0
 	},
 	{
 		id : 11,
-		name : "Strætó - 52"
+		name : "Strætó - 52",
+		type : 0
 	}
 ]

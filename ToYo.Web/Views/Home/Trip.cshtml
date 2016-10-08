@@ -3,19 +3,28 @@
     ViewBag.Title = "Trip";
 }
 
-@{var i = 1;}
 
 @foreach (var routes in @Model)
 {
-    <h3>Leið @(i++)<span class="glyphicon glyphicon-education"></span></h3>
-    <span class="glyphicons glyphicons-boat"></span>
     <div class="row item">
         @foreach (var route in routes)
         {
             <div class="col-sm-6">
                 <div>
                     <label>Ferðamáti: </label>
-                    <label>@route.Agent.Name </label><span class="glyphicon glyphicon-education"></span>
+                    <label>@route.Agent.Name </label>
+                    @if (route.Agent.Type == ToYo.Web.Models.AgentType.Bus)
+                    {
+                        <span class="glyphicons"><img style="width:auto; height:20px;" src="~/Content/Images/bus.png"></span>
+                    }
+                    else if (route.Agent.Type == ToYo.Web.Models.AgentType.Airplane)
+                    {
+                        <span class="glyphicons"><img style="width:auto; height:20px;" src="~/Content/Images/airplane.png"></span>
+                    }
+                    else
+                    {
+                        <span class="glyphicons"><img style="width:auto; height:20px;" src="~/Content/Images/boat.png"></span>
+                    }
                 </div>
                 <div>
                     @route.Departure.ToString("dd.MM.yyyy")

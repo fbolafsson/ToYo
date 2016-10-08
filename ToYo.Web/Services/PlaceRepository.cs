@@ -16,7 +16,7 @@ namespace ToYo.Web.Services
         public PlaceRepository()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "ToYo.Web.Places.txt";
+            var resourceName = "ToYo.Web.Resources.Places.txt";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (StreamReader reader = new StreamReader(stream))

@@ -16,7 +16,7 @@ namespace ToYo.Web.Services
         public AgentRepository()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "ToYo.Web.Agents.txt";
+            var resourceName = "ToYo.Web.Resources.Agents.txt";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (StreamReader reader = new StreamReader(stream))

@@ -5,6 +5,12 @@ using System.Web;
 
 namespace ToYo.Web.Models
 {
+    public enum AgentType
+    {
+        Bus,
+        Airplane,
+        Boat
+    }
     public class Agent
     {
         public Agent(int id, string name)
@@ -15,5 +21,6 @@ namespace ToYo.Web.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public AgentType Type { get;set; }
     }
 }
