@@ -24,6 +24,8 @@ namespace ToYo.Web.Controllers
 
         public ActionResult Index()
         {
+            var visitS = new VisitSeydisfjordurTripRepository().GetTrips(DateTime.Today);
+
             var model = new HomeModel {
                 Places = placeRpository.GetPlaces()
                     .Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() }),
