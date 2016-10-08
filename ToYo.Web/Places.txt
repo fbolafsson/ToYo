@@ -1,0 +1,66 @@
+﻿[
+	{ 
+		id : 1,
+		name : "Reykjavík"
+	},
+	{ 
+		id : 2,
+		name : "Keflavík"
+	},
+	{ 	
+		id : 3,
+		name : "Stykkishólmur"
+	},
+	{ 
+		id : 5,
+		name : "Brjánslækur"
+	},
+	{ 
+		id : 6,
+		name : "Hólmavík"
+	},
+	{ 
+		id : 7,
+		name : "Ísafjörður"
+	},
+	{ 
+		id : 8,
+		name : "Akureyri"
+	},
+	{ 
+		id : 9,
+		name : "Egilsstaðir"
+	},
+	{ 
+		id : 10,
+		name : "Seyðisfjörður"
+	},
+	{ 
+		id : 11,
+		name : "Höfn"
+	},
+	{ 
+		id : 12,
+		name : "Vík"
+	},
+	{ 
+		id : 13,
+		name : "Vestmannaeyjar"
+	},
+	{ 
+		id : 14,
+		name : "Fjörður"
+	},
+	{ 
+		id : 15,
+		name : "Borgarnes"
+	},
+	{ 
+		id : 16,
+		name : "Landeyjahöfn"
+	},
+	{ 
+		id : 17,
+		name : "Hvolsvöllur"
+	},
+]

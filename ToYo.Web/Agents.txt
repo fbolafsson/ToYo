@@ -1,0 +1,46 @@
+﻿[
+	{
+		id : 1,
+		name : "Strætó - 21"
+	},
+	{
+		id : 2,
+		name : "Sterna"
+	},
+	{
+		id : 3,
+		name : "Reykjavík Excursions"
+	},
+	{
+		id : 4,
+		name : "Ernir"
+	},
+	{
+		id : 5,
+		name : "Herjólfur"
+	},
+	{
+		id : 6,
+		name : "Baldur"
+	},
+	{
+		id : 7,
+		name : "Flugfélag Íslands"
+	},
+	{
+		id : 8,
+		name : "Strætó - 57"
+	},
+	{
+		id : 9,
+		name : "Strætó - 58"
+	},
+	{
+		id : 10,
+		name : "Strætó - 51"
+	},
+	{
+		id : 11,
+		name : "Strætó - 52"
+	}
+]

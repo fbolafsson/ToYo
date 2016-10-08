@@ -1,0 +1,49 @@
+﻿@model IEnumerable<IEnumerable< ToYo.Web.Models.ViewModels.TripModel>>
+@{
+    ViewBag.Title = "Trip";
+}
+
+@{var i = 1;}
+
+@foreach (var routes in @Model)
+{
+    <h3>Leið @(i++)<span class="glyphicon glyphicon-education"></span></h3>
+    <span class="glyphicons glyphicons-boat"></span>
+    <div class="row item">
+        @foreach (var route in routes)
+        {
+            <div class="col-sm-6">
+                <div>
+                    <label>Ferðamáti: </label>
+                    <label>@route.Agent.Name </label><span class="glyphicon glyphicon-education"></span>
+                </div>
+                <div>
+                    @route.Departure.ToString("dd.MM.yyyy")
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div>
+                    <label>Frá: </label>
+                    <label>@route.From.Name</label>
+                </div>
+                <hr>
+                <div>
+                    @route.Departure.ToString("HH:mm")
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div>
+                    <label>Til: </label>
+                    <label>@route.To.Name</label>
+                </div>
+                <hr>
+                <div>
+                    @route.Arrival.ToString("HH:mm")
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <hr style="width: 100%;" />
+            </div>
+        }
+    </div>
+}
