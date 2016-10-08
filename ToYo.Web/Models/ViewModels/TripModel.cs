@@ -12,5 +12,6 @@ namespace ToYo.Web.Models.ViewModels
         public Agent Agent { get; set; }
         public DateTime Departure {get;set;}
         public DateTime Arrival { get; set; }
+        public decimal? Price { get; set; }
     }
 }

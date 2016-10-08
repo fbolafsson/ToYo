@@ -8,9 +8,9 @@
 {
     <div class="row item">
         <div class="col-sm-4">
-            <div class="col-sm-12"><label>Date: </label>@routes.Trips.First().Departure.ToString("dd.MM.yyyy")</div>
-            <div class="col-sm-12"><label>Travel time: </label>@routes.JourneyTime.ToString("HH:mm")</div>
-            <div class="col-sm-12"><label>Total price: </label>@string.Format("{0:c0}", routes.TotalPrice)</div>
+            <div class="col-sm-12"><strong>Date: </strong>@routes.Trips.First().Departure.ToString("dd.MM.yyyy")</div>
+            <div class="col-sm-12"><strong>Travel time: </strong>@routes.JourneyTime.ToString("HH:mm")</div>
+            <div class="col-sm-12"><strong>Total price: </strong>@(routes.TotalPrice != null ? string.Format("{0:c0}", routes.TotalPrice) : "N/A")</div>
         </div>
         <div class="col-sm-8">
             @for (var i = 0; i < routes.Trips.Count(); i++)

@@ -191,8 +191,8 @@
 	{
 		fromId : 1,
 		toId : 2,
-		departureTime : "09:22",
-		arrivalTime : "09:46",
+		departureTime : "08:28",
+		arrivalTime : "09:38",
 		date : "2016-10-10",
 		agentId : 1,
 		price : 1680
@@ -200,8 +200,8 @@
 	{
 		fromId : 1,
 		toId : 2,
-		departureTime : "11:22",
-		arrivalTime : "11:46",
+		departureTime : "14:28",
+		arrivalTime : "15:38",
 		date : "2016-10-10",
 		agentId : 1,
 		price : 1680
@@ -209,8 +209,8 @@
 	{
 		fromId : 1,
 		toId : 2,
-		departureTime : "13:22",
-		arrivalTime : "13:46",
+		departureTime : "15:28",
+		arrivalTime : "16:28",
 		date : "2016-10-10",
 		agentId : 1,
 		price : 1680
@@ -218,8 +218,8 @@
 	{
 		fromId : 1,
 		toId : 2,
-		departureTime : "15:22",
-		arrivalTime : "15:46",
+		departureTime : "16:28",
+		arrivalTime : "17:28",
 		date : "2016-10-10",
 		agentId : 1,
 		price : 1680
@@ -227,8 +227,8 @@
 	{
 		fromId : 1,
 		toId : 2,
-		departureTime : "17:22",
-		arrivalTime : "17:46",
+		departureTime : "17:28",
+		arrivalTime : "18:28",
 		date : "2016-10-10",
 		agentId : 1,
 		price : 1680
@@ -558,6 +558,40 @@
 		agentId : 2,
 		price : 6000
 	},
-
-
+	{
+		fromId : 2,
+		toId : 1,
+		departureTime : "09:55",
+		arrivalTime : "11:18",
+		date : "2016-10-10",
+		agentId : 1,
+		price : 1680
+	},
+	{
+		fromId : 2,
+		toId : 1,
+		departureTime : "11:55",
+		arrivalTime : "13:18",
+		date : "2016-10-10",
+		agentId : 1,
+		price : 1680
+	},
+	{
+		fromId : 2,
+		toId : 1,
+		departureTime : "13:42",
+		arrivalTime : "14:53",
+		date : "2016-10-10",
+		agentId : 1,
+		price : 1680
+	},
+	{
+		fromId : 2,
+		toId : 1,
+		departureTime : "14:42",
+		arrivalTime : "15:53",
+		date : "2016-10-10",
+		agentId : 1,
+		price : 1680
+	}
 ]

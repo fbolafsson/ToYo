@@ -9,11 +9,11 @@ using ToYo.Web.Models;
 
 namespace ToYo.Web.Services
 {
-    public class TripRepository
+    public class TripJsonRepository : ITripRepository
     {
         private IList<Trip> trips;
 
-        public TripRepository()
+        public TripJsonRepository()
         {
             var assembly = Assembly.GetExecutingAssembly();
             var resourceName = "ToYo.Web.Resources.Trips.txt";
@@ -26,9 +26,9 @@ namespace ToYo.Web.Services
             }
         }
 
-        public IList<Trip> GetTrips()
+        public IList<Trip> GetTrips(DateTime date)
         {
-            return trips;
+            return trips.Where(x => x.Date == date).ToList();
         }
     }
 }
