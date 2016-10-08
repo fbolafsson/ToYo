@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
 namespace ToYo.Web.Models.ViewModels
 {
     public class TripsModel
     {
-        public IEnumerable<SelectListItem> Places { get; set; }
+        public IList<TripModel> Trips { get; set; }
+        public DateTime JourneyTime { get; set; }
+        public decimal? TotalPrice { get; set; }
     }
 }

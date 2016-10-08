@@ -29,11 +29,12 @@ textarea {
     padding-top: 7px;
     border-width: 1px;
     border-color: #CCC;
-    background-color: #FFF
+    background-color: #FFF;
+    margin-bottom: 20px;
 }
 
 .container {
-    max-width: 700px;
+    max-width: 800px;
 }
 
 hr{

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<IEnumerable< ToYo.Web.Models.ViewModels.TripModel>>
+﻿@model IEnumerable<ToYo.Web.Models.ViewModels.TripsModel>
 @{
     ViewBag.Title = "Trip";
 }
@@ -7,52 +7,55 @@
 @foreach (var routes in @Model)
 {
     <div class="row item">
-        @foreach (var route in routes)
-        {
-            <div class="col-sm-6">
-                <div>
-                    <label>Ferðamáti: </label>
-                    <label>@route.Agent.Name </label>
-                    @if (route.Agent.Type == ToYo.Web.Models.AgentType.Bus)
-                    {
-                        <span class="glyphicons"><img style="width:auto; height:20px;" src="~/Content/Images/bus.png"></span>
-                    }
-                    else if (route.Agent.Type == ToYo.Web.Models.AgentType.Airplane)
-                    {
-                        <span class="glyphicons"><img style="width:auto; height:20px;" src="~/Content/Images/airplane.png"></span>
-                    }
-                    else
-                    {
-                        <span class="glyphicons"><img style="width:auto; height:20px;" src="~/Content/Images/boat.png"></span>
-                    }
+        <div class="col-sm-4">
+            <div class="col-sm-12"><label>Date: </label>@routes.Trips.First().Departure.ToString("dd.MM.yyyy")</div>
+            <div class="col-sm-12"><label>Travel time: </label>@routes.JourneyTime.ToString("HH:mm")</div>
+            <div class="col-sm-12"><label>Total price: </label>@string.Format("{0:c0}", routes.TotalPrice)</div>
+        </div>
+        <div class="col-sm-8">
+            @for (var i = 0; i < routes.Trips.Count(); i++)
+            {
+                <div class="col-sm-4">
+                    <div>
+                        <label>@routes.Trips[i].Agent.Name </label>
+                        @if (routes.Trips[i].Agent.Type == ToYo.Web.Models.AgentType.Bus)
+                        {
+                            <span class="glyphicons"><img style="width:auto; height:20px;" src="~/Content/Images/bus.png"></span>
+                        }
+                        else if (routes.Trips[i].Agent.Type == ToYo.Web.Models.AgentType.Airplane)
+                        {
+                            <span class="glyphicons"><img style="width:auto; height:20px;" src="~/Content/Images/airplane.png"></span>
+                        }
+                        else
+                        {
+                            <span class="glyphicons"><img style="width:auto; height:20px;" src="~/Content/Images/boat.png"></span>
+                        }
+                    </div>
                 </div>
-                <div>
-                    @route.Departure.ToString("dd.MM.yyyy")
+                <div class="col-sm-4">
+                    <div>
+                        <label>Frá: </label>
+                        <label>@routes.Trips[i].From.Name</label>
+                    </div>
+                    <hr>
+                    <div>
+                        @routes.Trips[i].Departure.ToString("HH:mm")
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-3">
-                <div>
-                    <label>Frá: </label>
-                    <label>@route.From.Name</label>
+                <div class="col-sm-4">
+                    <div>
+                        <label>Til: </label>
+                        <label>@routes.Trips[i].To.Name</label>
+                    </div>
+                    <hr>
+                    <div>
+                        @routes.Trips[i].Arrival.ToString("HH:mm")
+                    </div>
                 </div>
-                <hr>
-                <div>
-                    @route.Departure.ToString("HH:mm")
+                <div class="col-sm-12">
+                    <hr style="width: 100%;" />
                 </div>
-            </div>
-            <div class="col-sm-3">
-                <div>
-                    <label>Til: </label>
-                    <label>@route.To.Name</label>
-                </div>
-                <hr>
-                <div>
-                    @route.Arrival.ToString("HH:mm")
-                </div>
-            </div>
-            <div class="col-sm-12">
-                <hr style="width: 100%;" />
-            </div>
-        }
+            }
+        </div>
     </div>
 }

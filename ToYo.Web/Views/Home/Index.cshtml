@@ -1,4 +1,4 @@
-﻿@model ToYo.Web.Models.ViewModels.TripsModel
+﻿@model ToYo.Web.Models.ViewModels.HomeModel
 @{
     ViewBag.Title = "Home Page";
 }
@@ -10,26 +10,14 @@
         <input id="from_id" type="hidden" name="from_id">
         <input id="to_id" type="hidden" name="to_id">
 
-        <h5>Brottfararstaður</h5>
+        <h5>From</h5>
         @Html.DropDownList("From", @Model.Places)
-
-        <!--
-        <input class="from box input-block-level" type="text" name="from" placeholder="Brottfararstaður" onblur="this.placeholder = 'Brottfararstaður'" autocomplete="off" id="from">
-        -->
-
-        <!-- Ör -->
-        <div><span class="glyphicon glyphicon-chevron-down"></span></div>
-        <div><span class="glyphicons glyphicons-boat"></span>
-            <span class="glyphicons"><img src="~/Content/Images/boat.png"></span>  
+        <h5>To</h5>
+        @Html.DropDownList("To", @Model.Places)
+        <div>
+            @Html.EditorFor(m => m.Date, new { @class = "form-control datecontrol", @PlaceHolder = "Enter Date of Birth"})
+            <button type="submit" class="btn" onclick="submitForm()">Go!</button>
         </div>
-            <h5>Áfangastaður</h5>
-            @Html.DropDownList("To", @Model.Places)
-            <!--
-        <input class="to input-block-level" type="text" name="to" placeholder="Áfangastaður" onblur="this.placeholder = 'Áfangastaður'" autocomplete="off" id="to">
-        -->
-            <!-- Takki -->
-            <button type="submit" class="btn" onclick="submitForm()">Af stað!</button>
-
 </form>
 
 

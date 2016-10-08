@@ -37,5 +37,7 @@ namespace ToYo.Web.Models
         public DateTime Date { get; set; }
 
         public int AgentId { get; set; }
+
+        public decimal? Price { get; set; }
     }
 }

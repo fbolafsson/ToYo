@@ -1,7 +1,7 @@
 ﻿[
 	{
 		id : 1,
-		name : "Strætó - 21",
+		name : "Strætó - 55",
 		type : 0
 	},
 	{
