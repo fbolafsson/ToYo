@@ -58,5 +58,9 @@
 		id : 12,
 		name : "GrayLine",
 		type : 0
+	},
+	{
+		id : 13,
+		name : "Ferðaþjonusta-Austurlands"
 	}
 ]

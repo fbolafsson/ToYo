@@ -8,8 +8,11 @@ namespace ToYo.Web.Models
     public class Trip
     {
         public int FromId { get; set; }
+
         public int ToId { get; set; }
+
         public string DepartureTime { get; set; }
+
         public TimeSpan Departure { get
             {
                 if (string.IsNullOrEmpty(DepartureTime))
@@ -20,11 +23,12 @@ namespace ToYo.Web.Models
                 return new TimeSpan(Convert.ToInt32(departure[0]), Convert.ToInt32(departure[1]), 0);
             }
         }
-        public string ArrivalTime { get; set; }
+
+                public string ArrivalTime { get; set; }
+
         public TimeSpan Arrival {
             get
             {
-
                 if (string.IsNullOrEmpty(ArrivalTime))
                 {
                     return new TimeSpan();

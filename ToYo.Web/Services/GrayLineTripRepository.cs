@@ -41,17 +41,19 @@ namespace ToYo.Web.Services
             });
             var somResponse = client.PostAsync("/api/tours",
                 new StringContent(json, Encoding.UTF8, "application/json")).Result;
-            var graylineResult = somResponse.Content.ReadAsAsync<GraylineResult>().Result;
+            //var graylineResult = somResponse.Content.ReadAsAsync<GraylineResult>().Result;
 
-            return graylineResult.TourDepartures.Select(x => new Trip {
-                FromId = x.TourNumber == "AH201" ? 1 : 2,
-                ToId = x.TourNumber == "AH201" ? 2 : 1,
-                DepartureTime = x.DepartureText.Substring(0, 5),
-                ArrivalTime = new DateTime().Add(ToTimeSpan(x.DepartureText)).AddMinutes(x.DurationMinutes).ToString("HH:mm"),
-                Date = x.Departure.Date,
-                AgentId = 12,
-                Price = x.Prices.FirstOrDefault()?.PricePerPAX ?? null
-            }).ToList();
+            //return graylineResult.TourDepartures.Select(x => new Trip {
+            //    FromId = x.TourNumber == "AH201" ? 1 : 2,
+            //    ToId = x.TourNumber == "AH201" ? 2 : 1,
+            //    DepartureTime = x.DepartureText.Substring(0, 5),
+            //    ArrivalTime = new DateTime().Add(ToTimeSpan(x.DepartureText)).AddMinutes(x.DurationMinutes).ToString("HH:mm"),
+            //    Date = x.Departure.Date,
+            //    AgentId = 12,
+            //    Price = x.Prices.FirstOrDefault()?.PricePerPAX ?? null
+            //}).ToList();
+
+            return new List<Trip>();
         }
 
         private TimeSpan ToTimeSpan(string time)

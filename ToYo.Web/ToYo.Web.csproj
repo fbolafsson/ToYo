@@ -206,6 +206,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,9 +222,12 @@
     <Compile Include="Services\AgentRepository.cs" />
     <Compile Include="Services\GrayLineTripRepository.cs" />
     <Compile Include="Services\ITripRepository.cs" />
+    <Compile Include="Services\IVisitSeydisfjordurReader.cs" />
     <Compile Include="Services\PlaceRepository.cs" />
     <Compile Include="Services\TripJsonRepository.cs" />
+    <Compile Include="Services\TripParser.cs" />
     <Compile Include="Services\TripRepositoryComposite.cs" />
+    <Compile Include="Services\VisitSeydisfjordurReader.cs" />
     <Compile Include="Services\VisitSeydisfjordurTripRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

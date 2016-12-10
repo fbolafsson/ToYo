@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using ToYo.Web.Models;
 using System.Net.Http;
-using HtmlAgilityPack;
 
 namespace ToYo.Web.Services
 {
     public class VisitSeydisfjordurTripRepository : ITripRepository
     {
+        private readonly IVisitSeydisfjordurReader visitSeydisfjordurReader;
+
+        public VisitSeydisfjordurTripRepository(IVisitSeydisfjordurReader visitSeydisfjordurReader)
+        {
+            if (visitSeydisfjordurReader == null) throw new ArgumentNullException(nameof(visitSeydisfjordurReader));
+            this.visitSeydisfjordurReader = visitSeydisfjordurReader;
+        }
+
         // TODO: Það á eftir að klára að útfæra þetta, en þetta er dæmigerð síða sem þarf að scrape-a
         public IList<Trip> GetTrips(DateTime date)
         {
@@ -17,17 +24,13 @@ namespace ToYo.Web.Services
             };
 
             var responseMessage = client.GetAsync("/ferdathjonusta-austurlands/").Result;
-            var result = responseMessage.Content.ReadAsStringAsync().Result;
+            var html = responseMessage.Content.ReadAsStringAsync().Result;
 
-            var htmlDoc = new HtmlDocument();
-            htmlDoc.LoadHtml(result);
+            var schedule = visitSeydisfjordurReader.GetSchedule(html);
+            var tripParser = new TripParser();
 
-            foreach (HtmlNode table in htmlDoc.DocumentNode.SelectNodes("//table"))
-            {
-                var text = table.ChildNodes[1].SelectNodes("//tr");
-            }
 
-            return new List<Trip>();
+            return tripParser.Parse(schedule);
         }
     }
 }
