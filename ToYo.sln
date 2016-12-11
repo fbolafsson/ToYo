@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToYo.Web", "ToYo.Web\ToYo.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToYo.Tests", "ToYo.Tests\ToYo.Tests.csproj", "{5FE6237C-9EDD-4098-A879-25672C16D49C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisitSeydisfjordurModule", "VisitSeydisFjordurModule\VisitSeydisfjordurModule.csproj", "{3CC93DF1-CA17-4F17-AEFC-6EF0355AE61B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisitSeydisfjordurModule.Tests", "VisitSeydisfjordur.Tests\VisitSeydisfjordurModule.Tests.csproj", "{EE9DA9CE-86A0-42AA-AEA2-18D282AB1799}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{5FE6237C-9EDD-4098-A879-25672C16D49C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FE6237C-9EDD-4098-A879-25672C16D49C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FE6237C-9EDD-4098-A879-25672C16D49C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CC93DF1-CA17-4F17-AEFC-6EF0355AE61B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CC93DF1-CA17-4F17-AEFC-6EF0355AE61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CC93DF1-CA17-4F17-AEFC-6EF0355AE61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CC93DF1-CA17-4F17-AEFC-6EF0355AE61B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE9DA9CE-86A0-42AA-AEA2-18D282AB1799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE9DA9CE-86A0-42AA-AEA2-18D282AB1799}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE9DA9CE-86A0-42AA-AEA2-18D282AB1799}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE9DA9CE-86A0-42AA-AEA2-18D282AB1799}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

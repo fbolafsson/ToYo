@@ -17,14 +17,14 @@ namespace ToYo.Web.Controllers
 
         public HomeController()
         {
-            tripRepository = new TripRepositoryComposite(new List<ITripRepository> { new TripJsonRepository(), new GrayLineTripRepository(), new VisitSeydisfjordurTripRepository(new VisitSeydisfjordurReader()) });
+            tripRepository = new TripRepositoryComposite(new List<ITripRepository> { new TripJsonRepository(), new GrayLineTripRepository(), new VisitSeydisfjordurTripRepository(new VisitSeydisfjordurModule.VisitSeydisfjordurReader()) });
             placeRpository = new PlaceRepository();
             agentRpository = new AgentRepository();
         }
 
         public ActionResult Index()
         {
-            var visitS = new VisitSeydisfjordurTripRepository(new VisitSeydisfjordurReader()).GetTrips(DateTime.Today);
+            var visitS = new VisitSeydisfjordurTripRepository(new VisitSeydisfjordurModule.VisitSeydisfjordurReader()).GetTrips(DateTime.Today);
 
             var model = new HomeModel {
                 Places = placeRpository.GetPlaces()
@@ -37,6 +37,7 @@ namespace ToYo.Web.Controllers
         public ActionResult Trip(TripRequestModel model)
         {
             var trips = tripRepository.GetTrips(model.Date ?? DateTime.Today);
+            var from = trips.Where(x => x.FromId == model.From).ToList();
             var tails = trips.Where(x => x.FromId == model.From).Where(x => x.Date.Date == model.Date.Value.Date).Select(x => new List<Trip> { x }).ToList();
 
             var possibleRouts = new List<List<Trip>>();

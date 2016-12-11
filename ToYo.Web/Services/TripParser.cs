@@ -4,11 +4,58 @@ using System.Linq;
 using ToYo.Web.Models;
 using ToYo.Web.Extensions;
 using System.Text.RegularExpressions;
+using VisitSeydisfjordurModule;
 
 namespace ToYo.Web.Services
 {
     public class TripParser
     {
+        public List<Trip> Parse(Schedule schedule)
+        {
+            var days = GetDaysBetween(schedule.EffectiveFrom.Value, schedule.EffectiveTo.Value);
+
+            var trips = new List<Trip>();
+            for(var i = 0; i < days; i++)
+            {
+                var tripsDate = schedule.EffectiveFrom.Value.AddDays(i);
+                var tripsDay = tripsDate.DayOfWeek;
+                var key = schedule.Dictionary.Keys.SingleOrDefault(x => ParseDay(x) == tripsDay);
+                var daysSchedule = schedule.Dictionary[key];
+                var tripsOfTheDay = new List<Trip>();
+
+                for(var j = 0; j < daysSchedule.Count; j++)
+                {
+                    if (string.IsNullOrEmpty(daysSchedule[j]))
+                    {
+                        continue;
+                    }
+                    var result = Regex.Replace(daysSchedule[j], @"\s+", "");
+                    var time = result.Split(':');
+                    var departure = daysSchedule[j];
+                    var arrival = $"{Convert.ToInt32(time[0]) + 1:00}:{time[1]}";
+                    tripsOfTheDay.Add(new Trip
+                    {
+                        FromId = schedule.Dictionary["Dest"][j] == "Frá Seyðisfirði" ? 10 : 9,
+                        ToId = schedule.Dictionary["Dest"][j] == "Frá Seyðisfirði" ? 9 : 10,
+                        Date = tripsDate,
+                        DepartureTime = departure,
+                        ArrivalTime = arrival,
+                        AgentId = 13,
+                        Price = schedule.Price
+                    });
+                }
+                trips.AddRange(tripsOfTheDay);
+            }
+
+            return trips;
+        }
+
+        private int GetDaysBetween(DateTime from, DateTime to)
+        {
+            TimeSpan span = to.Subtract(from);
+            return (int)span.TotalDays;
+        }
+
         public List<Trip> Parse(List<List<string>> schedule)
         {
             var daysDictionary = GetDaysDictionary(schedule);

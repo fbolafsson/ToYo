@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using System.Net.Http;
+using System.Text.RegularExpressions;
 
 namespace ToYo.Tests
 {
@@ -35,5 +37,31 @@ namespace ToYo.Tests
             }
             return (int)day;
         }
+
+        [Test]
+        public void ShouldBe()
+        {
+            //Arrange
+            var client = new HttpClient()
+            {
+                BaseAddress = new Uri("http://www.visitseydisfjordur.com/is/project")
+            };
+
+            var responseMessage = client.GetAsync("/ferdathjonusta-austurlands/").Result;
+            var httpResult = responseMessage.Content.ReadAsStringAsync().Result;
+
+
+            var regex = new Regex(@"Fullorðnir: [0-9]*\.[0-9]* kr");
+            var match = regex.Match(httpResult);
+
+            Assert.True(match.Success);
+            if (match.Success)
+            {
+                Console.WriteLine("Found Match for {0}", match.Value);
+                Console.WriteLine("ID was {0}", match.Groups[1].Value);
+            }
+
+        }
+
     }
 }

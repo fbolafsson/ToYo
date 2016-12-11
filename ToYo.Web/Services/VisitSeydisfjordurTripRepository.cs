@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using ToYo.Web.Models;
 using System.Net.Http;
@@ -7,9 +8,9 @@ namespace ToYo.Web.Services
 {
     public class VisitSeydisfjordurTripRepository : ITripRepository
     {
-        private readonly IVisitSeydisfjordurReader visitSeydisfjordurReader;
+        private readonly VisitSeydisfjordurModule.IVisitSeydisfjordurReader visitSeydisfjordurReader;
 
-        public VisitSeydisfjordurTripRepository(IVisitSeydisfjordurReader visitSeydisfjordurReader)
+        public VisitSeydisfjordurTripRepository(VisitSeydisfjordurModule.IVisitSeydisfjordurReader visitSeydisfjordurReader)
         {
             if (visitSeydisfjordurReader == null) throw new ArgumentNullException(nameof(visitSeydisfjordurReader));
             this.visitSeydisfjordurReader = visitSeydisfjordurReader;
@@ -26,11 +27,11 @@ namespace ToYo.Web.Services
             var responseMessage = client.GetAsync("/ferdathjonusta-austurlands/").Result;
             var html = responseMessage.Content.ReadAsStringAsync().Result;
 
-            var schedule = visitSeydisfjordurReader.GetSchedule(html);
+            var schedules = visitSeydisfjordurReader.GetSchedule(html);
             var tripParser = new TripParser();
+            var trips = schedules.SelectMany(x => tripParser.Parse(x)).ToList();
 
-
-            return tripParser.Parse(schedule);
+            return trips;
         }
     }
 }
